@@ -28,33 +28,33 @@ public class JpaConfigurator {
 
 	    return dataSource;
 	}
-
-	@Bean
-	public LocalContainerEntityManagerFactoryBean getEntityManagerFactory(DataSource dataSource) {
-		LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
-
-		entityManagerFactory.setPackagesToScan("br.com.caelum");
-		entityManagerFactory.setDataSource(dataSource);
-
-		entityManagerFactory
-				.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
-
-		Properties props = new Properties();
-
-		props.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5InnoDBDialect");
-		props.setProperty("hibernate.show_sql", "true");
-		props.setProperty("hibernate.hbm2ddl.auto", "create-drop");
-
-		entityManagerFactory.setJpaProperties(props);
-		return entityManagerFactory;
-	}
-
-	@Bean
-	public JpaTransactionManager getTransactionManager(EntityManagerFactory emf) {
-		JpaTransactionManager transactionManager = new JpaTransactionManager();
-		transactionManager.setEntityManagerFactory(emf);
-
-		return transactionManager;
-	}
+//
+//	@Bean
+//	public LocalContainerEntityManagerFactoryBean getEntityManagerFactory(DataSource dataSource) {
+//		LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
+//
+//		entityManagerFactory.setPackagesToScan("br.com.caelum");
+//		entityManagerFactory.setDataSource(dataSource);
+//
+//		entityManagerFactory
+//				.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
+//
+//		Properties props = new Properties();
+//
+//		props.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL8InnoDBDialect");
+//		props.setProperty("hibernate.show_sql", "true");
+//		props.setProperty("hibernate.hbm2ddl.auto", "create-drop");
+//
+//		entityManagerFactory.setJpaProperties(props);
+//		return entityManagerFactory;
+//	}
+//
+//	@Bean
+//	public JpaTransactionManager getTransactionManager(EntityManagerFactory emf) {
+//		JpaTransactionManager transactionManager = new JpaTransactionManager();
+//		transactionManager.setEntityManagerFactory(emf);
+//
+//		return transactionManager;
+//	}
 
 }

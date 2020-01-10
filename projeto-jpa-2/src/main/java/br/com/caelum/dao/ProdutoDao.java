@@ -12,13 +12,13 @@ import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
-import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import br.com.caelum.model.Loja;
 import br.com.caelum.model.Produto;
 
-@Repository
-public class ProdutoDao {
+@Transactional
+class ProdutoDao {
 
 	@PersistenceContext
 	private EntityManager em;
